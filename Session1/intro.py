@@ -19,3 +19,8 @@ print("Tuổi của bạn là",m)
 # Trong lập trình quan trọng hiểu đc làm ra ứng dụng này làm gì
 
 
+# Các lệnh git thông dụng
+# git stage .
+# git commit -m "string miêu tả"
+# git push
+
