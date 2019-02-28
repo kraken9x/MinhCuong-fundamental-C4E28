@@ -24,7 +24,3 @@
 #     for j in range(n):
 #         print("*", end = "")
 #     print()
-
-print(5==6)
-print(5<6)
-print(6 != 5)
