@@ -22,17 +22,20 @@ def generate_quiz():
     op  = choice(["+", "-", "*", "/"])
     error = randint(-1, 1)
     real_result = calc(x, y, op)
-    display_result = real_result + error
-
-    return [x, y, op, display_result]
+    result = real_result + error
+    return [x, y, op, result]
 
 def check_answer(x, y, op, result, user_choice):
-    arr = generate_quiz()
-    x = arr[0]
-    y = arr[1]
-    op = arr[2]    
-    result = arr[3]
+    # arr = generate_quiz()
+    # # print(arr)
+    # x = arr[0]
+    # y = arr[1]
+    # op = arr[2]    
+    # result = arr[3]
+    # print(result)
     real_result = calc(x, y, op)
+    
+    print(real_result)
     if user_choice == True:
         if real_result == result:
             return True
