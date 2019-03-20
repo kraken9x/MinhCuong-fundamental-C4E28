@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Poem</title>
+</head>
+<body>
+
+    {% for poem in poems %}
+        <h1>
+            Bài thơ số {{loop.index}}
+        </h1>
+        {# {{loop.index0}} chỉ số bắt đầu từ 0, index thì bắt đầu từ 1 vì
+         jinja thân thiện với người dùng #}
+        <h3>{{poem.title}}</h3>
+        <p>    
+            {{poem.content}}
+        </p>
+        {% if poem.gender == "male" %}
+            <h5>Mr. {{poem.author}}</h5>
+        {% else %}
+            <h5>Ms. {{poem.author}}</h5>
+        {% endif %}
+        <hr>
+    {% endfor %}
+    
+
+
+    {#
+    <!-- <h1>{{ poem["title"] }}</h1>
+    <p>    
+        {{ poem["content"] }}    
+    </p>
+
+    <h5>{{ poem.author }}</h5> -->
+    <!-- 
+        đây là cú pháp của jinja2
+        không đơn thuần là 1 file html thuần 
+    -->
+    #}
+<!-- 
+    <h1>Thơ con cóc 2</h1>
+    <p>
+        Râu tôm nấu với ruột bầu <br>
+        Chồng chan vợ húp gật đầu khen ngon <br>
+        Chỉ tội cho cái thằng con <br>
+        Đứng ngoài chầu chực biết ngon là gì.
+    </p>
+
+    <h5>By: ... </h5>
+    <hr> -->
+</body>
+</html>
