@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Display User</title>
+</head>
+<body>
+    {%for key, value in users.items()%}
+        {% if username == key %}
+            <h2>My profile:</h2>
+            <p>
+                My name is {{value.name}} <br>
+                I am {{value.age}} years old <br>
+                My gender is {{value.gender}} <br>
+                My hobbies are {{value.hobbies}} <br>
+            </p>
+        {% endif %}
+    {% endfor %}
+    
+</body>
+</html>
