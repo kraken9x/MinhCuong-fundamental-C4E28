@@ -1,5 +1,27 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, url_for
 app = Flask(__name__)
+
+
+# Đặt thành dictionary
+# List nên đặt tên có số nhiều
+poems = [
+    {
+        'title'   : "Thơ con cóc",
+        'content' : '''
+            Râu tôm nấu với ruột bầu 
+        ''',
+        'author' : "...",
+        'gender' : "male"
+    },
+    {
+        'title'   : "Thơ con cóc 2",
+        'content' : '''
+            Râu tôm nấu với ruột bầu 
+        ''',
+        'author' : "...",
+        'gender' : "female"
+    }
+]
 
 @app.route('/')
 def index():
@@ -19,33 +41,25 @@ def add(num1, num2):
 
 # HTML
 @app.route('/poem')
-def poem():
-    # Đặt thành dictionary
-    # List nên đặt tên có số nhiều
-    poems = [
-        {
-            'title'   : "Thơ con cóc",
-            'content' : '''
-                Râu tôm nấu với ruột bầu 
-            ''',
-            'author' : "...",
-            'gender' : "male"
-        },
-        {
-            'title'   : "Thơ con cóc 2",
-            'content' : '''
-                Râu tôm nấu với ruột bầu 
-            ''',
-            'author' : "...",
-            'gender' : "female"
-        }
-    ]
+def poem():   
     return render_template("poem.html", 
                             poems = poems
                             )
+
 # Tách phần xử lý logic, server ra 1 bên, file HTML ra 1 bên
 # html ở trong thư mục templates(phải viết chính xác)
 # template là 1 file html chưa hoàn chỉnh, còn chỗ trống để fill vào
+
+
+# @@@@@@@@@@@@@@@ Web - 1 continue
+# detail 
+
+@app.route('/poem/<int:index>')
+def detail(index):
+    
+    return render_template("poem-2.html", poems = poems, index = index)
+
+
 if __name__ == '__main__':
     app.run(port = 8080, debug=True)
 # Nếu không có port = ... => port mặc định là 5000

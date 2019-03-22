@@ -9,9 +9,12 @@
 <body>
 
     {% for poem in poems %}
-        <h1>
-            Bài thơ số {{loop.index}}
-        </h1>
+        <a href="{{ url_for('detail', index=loop.index0) }}">
+        <!-- <a href="{{ url_for('poem') }}/{{ loop.index0 }}"> -->
+            <h1>
+                Bài thơ số {{loop.index0}}
+            </h1>
+        </a>
         {# {{loop.index0}} chỉ số bắt đầu từ 0, index thì bắt đầu từ 1 vì
          jinja thân thiện với người dùng #}
         <h3>{{poem.title}}</h3>
