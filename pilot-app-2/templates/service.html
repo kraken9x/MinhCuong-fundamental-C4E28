@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>display services</title>
+</head>
+<body>
+
+    {%for service in all_service%}
+        {%if service.gender == "male"%}
+            <img src="../static/images/male.png"> <br>
+        {%else%}            
+            <img src="../static/images/female.png"> <br>
+        {%endif%}
+        <p>Id: {{service.age}}</p>
+        <P>Name: {{service.name}}</P>
+        <P>Age: {{service.age}}</P>
+        <P>Address: {{service.address}}</P>
+        <P>Gender: {{service.gender}}</P>
+        {%if service.avalable == True%}
+            <P>Available: Yes</P>
+        {%else%}
+            <p>Available: No</p>
+        {%endif%}
+        <a href="/all-service/details/{{ service._id }}">Click to show information</a> <br>
+        <a href="/delete/{{ service._id }}">Delete person</a>
+       <p>----------------------------------------------------------------------------</p>
+    {%endfor%}
+</body>
+</html>
