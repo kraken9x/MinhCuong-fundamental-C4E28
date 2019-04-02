@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect
+from flask import *
 from service import service_collection
 from bson.objectid import ObjectId
 
@@ -42,7 +42,7 @@ def all_service_gender(gender):
 @app.route('/all-service/details/<id>')
 def details(id):
   detail_service = service_collection.find_one({"_id": ObjectId(id)})
-  return str(detail_service)
+  return render_template("detail_service.html", service = detail_service)
 
 
 @app.route('/delete/<id>')
@@ -54,6 +54,46 @@ def delete(id):
   else:
     return "Not found service"
 
+@app.route('/update/<id>', methods = ["GET", "POST"])
+def update(id):
+  edit_service = service_collection.find_one({"_id":ObjectId(id)})
+  if request.method == "GET":
+    return render_template("update_service.html", edit_service = edit_service)
+  elif request.method == "POST":
+    form = request.form 
+    name = form["full_name"]
+    age = form["age"]
+    address = form["address"]
+    gender = form["gender"]
+    available = form["available"]
+    new_value = {"$set" : {
+      "name" : name,
+      "age" : age,
+      "address" : address,
+      "gender" : gender,
+      "available" : available,
+    }}
+    service_collection.update_one(edit_service, new_value)
+    return redirect("/all-service/details/{0}".format(id))
+
+@app.route('/login', methods = ["GET", "POST"])
+def login():
+  if request.method == "GET":
+    return render_template("login.html")
+  elif request.method == "POST":
+    form = request.form
+    username = form["username"]
+    password = form["password"]
+    if username == "admin" and password == "admin":
+      session["logged"] = True
+      return redirect('/all-service')
+    else:
+      return redirect('/login')
+
 if __name__ == '__main__':
   app.run(debug=True)
+ 
+
+ # Tìm hiểu thêm về relative path và absolute path
+
  

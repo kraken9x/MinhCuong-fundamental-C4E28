@@ -65,9 +65,20 @@ all_services = service_collection.find() # cơ chế lazy loading
 
 # 6. DELETE
 
-service = service_collection.find_one({"_id" : ObjectId("5c9a1dc7d3ed8b3fcc2bf8f5")})
-if service != None:
-    service_collection.delete_one(service)
-else:
-    print("Not Found")
+# service = service_collection.find_one({"_id" : ObjectId("5c9a1dc7d3ed8b3fcc2bf8f5")})
+# if service != None:
+#     service_collection.delete_one(service)
+# else:
+#     print("Not Found")
 # print(service) # sau khi xóa thì console hiện none
+
+
+# 7. UPDATE
+one_service = service_collection.find_one({"_id" : ObjectId("5c9a1dc7d3ed8b3fcc2bf8f0")})
+new_value = { "$set" : { "gender" : "male" } }
+service_collection.update_one(one_service, new_value)
+one_service = service_collection.find_one({"_id" : ObjectId("5c9a1dc7d3ed8b3fcc2bf8f0")})
+# print(one_service)
+
+# KHÁI NIỆM FORM
+
