@@ -95,5 +95,3 @@ if __name__ == '__main__':
  
 
  # Tìm hiểu thêm về relative path và absolute path
-
- 

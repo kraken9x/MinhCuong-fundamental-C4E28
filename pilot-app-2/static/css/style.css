@@ -1,0 +1,67 @@
+/* Reset CSS */
+* {
+    margin : 0;
+    padding : 0;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    height: 100%;
+    background-image: url("../images/abstract-angle-architecture-1005644.jpg");
+    background-size: cover;
+    justify-content: flex-end;
+}
+
+#div-form {
+    height: 100%;
+    width: 30%;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    
+}
+
+form{
+    display:flex;
+    flex-flow: column;
+    justify-content: space-around;
+    height: 20%;
+}
+
+button {
+    display: inline-block;
+    width: 30%;
+    height: 35px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 3px 3px #374567;
+    background-color: #586169;
+    color: white;
+
+}
+
+button:active{    
+    box-shadow: 0 0 white;
+    transition: 0.4s;
+}
+
+.input-form{
+    height: 35px;
+    width: 250px;
+    border-radius: 5px;
+    border: 1px solid #575d67;
+    padding-left: 10px;
+    margin-bottom: 6px;
+}
+h3{
+    color:#374567;
+    font-family: 'Luckiest Guy';
+    font-size: 30px;
+}
